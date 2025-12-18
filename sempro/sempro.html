@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Beloved 💕</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-color: #000;
+        }
+
+        /* Light Theme (Pink) - Default */
+        body {
+            --bg-primary: linear-gradient(135deg, #fee2e9 0%, #ffd6e8 100%);
+            --bg-secondary: #fff7f0;
+            --bg-card: rgba(255, 255, 255, 0.95);
+            --text-primary: #333;
+            --text-secondary: #7c082f;
+            --accent-color: #ff5d8f;
+            --accent-gradient: linear-gradient(135deg, #ffb3c1, #ff5d8f);
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --border-color: #ddd;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            transition: all 0.5s ease;
+        }
+
+        /* Dark Theme (Blue) */
+        body.dark-theme {
+            --bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --bg-secondary: #0f1419;
+            --bg-card: rgba(26, 42, 80, 0.95);
+            --text-primary: #e0e0e0;
+            --text-secondary: #b8c5d6;
+            --accent-color: #64b5f6;
+            --accent-gradient: linear-gradient(135deg, #42a5f5, #1e88e5);
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --border-color: #2a3f5f;
+        }
+
+        /* Black Fade Transition Overlay */
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 10000;
+            pointer-events: none;
+            transition: opacity 0.6s ease, visibility 0.6s;
+        }
+
+        .transition-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 10px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s;
+            z-index: 10;
+        }
+
+        .section.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ========== SECTION 1: QUESTION ========== */
+        #section1 {
+            background: var(--bg-primary);
+        }
+
+        .question-container {
+            background: var(--bg-card);
+            padding: 50px 60px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px var(--shadow-color);
+            text-align: center;
+            max-width: 500px;
+            animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Animasi fade in smooth */
+        @keyframes fadeInSmooth {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply animations */
+        h1 {
+            animation: fadeInSmooth 0.6s ease-out;
+            font-size: 32px;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .question-text {
+            animation: fadeInSmooth 0.8s ease-out 0.2s backwards;
+            font-size: 20px;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        #questionButtons button {
+            animation: fadeInSmooth 0.8s ease-out 0.4s backwards;
+        }
+
+        button {
+            padding: 15px 35px;
+            margin: 10px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .yes {
+            background: var(--accent-gradient);
+            color: white;
+        }
+
+        .yes:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow-color);
+        }
+
+        .yes:active {
+            transform: translateY(0);
+        }
+
+        .no {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        body.dark-theme .no {
+            background: #2a3f5f;
+            color: #b8c5d6;
+        }
+
+        .no:hover {
+            background: #d0d0d0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        body.dark-theme .no:hover {
+            background: #3a4f6f;
+        }
+
+        .no:active {
+            transform: translateY(0);
+        }
+
+        .emoji {
+            font-size: 80px;
+            margin: 20px 0;
+            animation: gentleBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes gentleBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .gif-image {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 12px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        /* ========== SECTION 2: FLOWERS ========== */
+        #section2 {
+            background: var(--dark-color);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .night {
+            position: fixed;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            filter: blur(0.1vmin);
+            background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), 
+                radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), 
+                repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), 
+                repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), 
+                repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), 
+                linear-gradient(90deg, rgb(7, 107, 42), rgb(240, 240, 240));
+            pointer-events: none;
+        }
+
+        .flowers {
+            position: relative;
+            transform: scale(0.9);
+        }
+
+        /* Message Overlay dengan GIF */
+        .message-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            padding: 40px 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px var(--shadow-color);
+            text-align: center;
+            max-width: 600px;
+            z-index: 1000;
+            animation: fadeInUp 1s 3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .message-overlay h2 {
+            font-size: 36px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .message-overlay p {
+            font-size: 20px;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .link-button {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .link-button:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        .link-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* ========== SECTION 3: DRAGGABLE LETTERS ========== */
+        #section3 {
+            background: var(--bg-primary);
+        }
+
+        .paper-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .paper {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(135deg, #ffffff 0%, #fff9f5 100%);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            padding: 30px;
+            cursor: grab;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeInSmooth 0.5s ease-out backwards;
+        }
+
+        body.dark-theme .paper {
+            background: linear-gradient(135deg, #2a3f5f 0%, #1a2332 100%);
+        }
+
+        .paper:nth-child(1) { animation-delay: 0.1s; }
+        .paper:nth-child(2) { animation-delay: 0.2s; }
+        .paper:nth-child(3) { animation-delay: 0.3s; }
+        .paper:nth-child(4) { animation-delay: 0.4s; }
+        .paper:nth-child(5) { animation-delay: 0.5s; }
+
+        .paper:hover {
+            box-shadow: 0 12px 35px var(--shadow-color);
+            transform: translateY(-3px);
+        }
+
+        .paper:active {
+            cursor: grabbing;
+        }
+
+        .paper.dragging {
+            cursor: grabbing;
+            box-shadow: 0 20px 50px var(--shadow-color);
+        }
+
+        .paper::before {
+            content: "";
+            position: absolute;
+            border: 2px dashed var(--accent-color);
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            border-radius: 8px;
+            opacity: 0.3;
+        }
+
+        .paper h2 {
+            font-family: 'Brush Script MT', cursive;
+            color: var(--accent-color);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .paper p {
+            font-family: 'Comic Sans MS', cursive;
+            color: var(--text-secondary);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .paper .heart-icon {
+            font-size: 40px;
+            color: #ff1744;
+            margin-top: 20px;
+            animation: subtleHeartbeat 2s ease-in-out infinite;
+        }
+
+        body.dark-theme .paper .heart-icon {
+            color: #64b5f6;
+        }
+
+        @keyframes subtleHeartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10% {
+                transform: scale(1.1);
+            }
+            20% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.1);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        /* Paper layout sesuai screenshot */
+        /* 4 papers di belakang - stack horizontal dengan slight overlap */
+        .paper:nth-child(2) {
+            /* Paper kedua dari kiri */
+            transform: rotate(2deg);
+            z-index: 1;
+            top: 50px;
+            left: -350px;
+        }
+
+        .paper:nth-child(3) {
+            /* Paper ketiga dari kiri */
+            transform: rotate(-1deg);
+            z-index: 2;
+            top: 30px;
+            left: -200px;
+        }
+
+        .paper:nth-child(4) {
+            /* Paper keempat dari kiri */
+            transform: rotate(3deg);
+            z-index: 3;
+            top: 40px;
+            left: -50px;
+        }
+
+        .paper:nth-child(5) {
+            /* Paper kelima dari kiri (paling kanan background) */
+            transform: rotate(-2deg);
+            z-index: 4;
+            top: 35px;
+            left: 100px;
+        }
+
+        .paper:nth-child(1) {
+            /* Paper utama di depan - "Untuk Kamu" */
+            transform: rotate(-3deg);
+            z-index: 10;
+            top: 0px;
+            left: 0px;
+        }
+
+        .paper img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+
+        /* Start Overlay for Section 3 */
+        #startOverlay3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .start-button {
+            text-align: center;
+            color: white;
+            padding: 50px 60px;
+            background: var(--accent-gradient);
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: pulseHeart 2s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .start-button:hover {
+            transform: scale(1.05);
+        }
+
+        .start-button i {
+            font-size: 70px;
+            margin-bottom: 25px;
+            display: block;
+            animation: musicNote 1.5s ease-in-out infinite;
+        }
+
+        @keyframes musicNote {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        @keyframes pulseHeart {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(249, 128, 161, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(249, 128, 161, 0.9);
+            }
+        }
+
+        .start-button h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .start-button p {
+            font-size: 20px;
+            opacity: 0.95;
+        }
+
+        /* Continue Button for Section 3 */
+        .section3-continue-btn {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gradient);
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9997;
+            opacity: 0;
+            visibility: hidden;
+            animation: fadeInUp 0.8s ease 2s forwards;
+        }
+
+        .section3-continue-btn:hover {
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .section3-continue-btn:active {
+            transform: translateX(-50%) translateY(-1px);
+        }
+
+        /* Show continue button only when in section 3 */
+        #section3.active .section3-continue-btn {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ========== SECTION 4: SEMPRO MESSAGE ========== */
+        #section4 {
+            background: var(--bg-secondary);
+        }
+
+        .sempro-container {
+            max-width: 500px;
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px var(--shadow-color);
+            animation: fadeInScale 0.8s ease;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .sempro-container h2 {
+            font-size: 32px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .sempro-container p {
+            font-size: 18px;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: left;
+            animation: fadeInSmooth 0.6s ease-out;
+        }
+
+        .sempro-container strong {
+            color: var(--accent-color);
+        }
+
+        .continue-btn {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInSmooth 0.8s ease-out 0.3s backwards;
+        }
+
+        .continue-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .continue-btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        .continue-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Thank You Button for Section 4 */
+        .thankyou-btn {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInSmooth 0.8s ease-out 0.5s backwards;
+            box-shadow: 0 5px 20px var(--shadow-color);
+        }
+
+        .thankyou-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .thankyou-btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .thankyou-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .thankyou-btn:active {
+            transform: translateY(-2px);
+        }
+
+        body.dragging {
+            cursor: grabbing !important;
+            user-select: none !important;
+        }
+
+        body.dragging * {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+        }
+
+        /* Music Toggle */
+        .music-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gradient);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            transition: all 0.3s ease;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .music-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* Instructions */
+        .instructions {
+            position: fixed;
+            bottom: 120px;
+            left: 30px;
+            background: var(--bg-card);
+            padding: 12px 16px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px var(--shadow-color);
+            font-size: 12px;
+            color: var(--text-secondary);
+            max-width: 220px;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .instructions.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .instructions h3 {
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .instructions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .instructions li {
+            padding: 3px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .instructions li::before {
+            content: "💕";
+            margin-right: 6px;
+            font-size: 10px;
+        }
+
+        @keyframes sparkleEffect {
+            0% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1) rotate(180deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0) rotate(360deg);
+            }
+        }
+
+        /* Floating Hearts Background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: floatSmooth 8s ease-in-out infinite;
+        }
+
+        @keyframes floatSmooth {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        body.dark-theme .progress-dot {
+            background: rgba(100, 181, 246, 0.3);
+        }
+
+        .progress-dot.active {
+            background: var(--accent-color);
+            transform: scale(1.5);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .progress-dot:hover {
+            transform: scale(1.3);
+        }
+
+        /* Reset Button */
+        .reset-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transition: all 0.3s ease;
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .reset-button.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .reset-button:hover {
+            background: var(--bg-card);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transform: translateY(-2px);
+        }
+
+        .reset-button i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Black Fade Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-dot active" data-section="1" onclick="jumpToSection(1)"></div>
+        <div class="progress-dot" data-section="2" onclick="jumpToSection(2)"></div>
+        <div class="progress-dot" data-section="3" onclick="jumpToSection(3)"></div>
+        <div class="progress-dot" data-section="4" onclick="jumpToSection(4)"></div>
+    </div>
+
+    <!-- Reset Button -->
+    <button class="reset-button" id="resetButton" onclick="resetWebsite()">
+        <i class="fas fa-redo"></i> Start Over
+    </button>
+
+    <!-- SECTION 1: QUESTION -->
+    <div class="section active" id="section1">
+        <div class="floating-hearts" id="hearts1"></div>
+        <div class="question-container">
+            <div class="emoji">💝</div>
+            <h1 id="questionTitle">Haii Kakak 💕</h1>
+            <p class="question-text" id="questionText">Would you like to see this special website I made for you?</p>
+            <div id="questionButtons">
+                <button class="yes" onclick="handleAnswer('yes')">Yes! 💖</button>
+                <button class="no" onclick="handleAnswer('no')">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: FLOWERS -->
+    <div class="section" id="section2">
+        <div class="night"></div>
+        <div class="flowers">
+            <!-- Flowers HTML will be inserted by included external HTML -->
+        </div>
+
+        <div class="message-overlay">
+            <img src="Cinema Cat Reaction GIF.gif" alt="Cinema" class="gif-image" style="width: 200px; margin-bottom: 20px;">
+            <h2>For You 🌼</h2>
+            <p>
+                Congratulations on the success of your proposal seminar!<br>
+                I know how hard you worked to reach this moment.<br>
+                I'm so proud of you, darling. 💛
+            </p>
+            <button class="link-button" onclick="goToSection(3)">Continue 💌</button>
+        </div>
+    </div>
+
+    <!-- SECTION 3: DRAGGABLE LETTERS -->
+    <div class="section" id="section3">
+        <div class="floating-hearts" id="hearts3"></div>
+        
+        <!-- START OVERLAY FOR SECTION 3 -->
+        <div id="startOverlay3" style="display: none;">
+            <div class="start-button">
+                <i class="fas fa-heart"></i>
+                <h1>💕 For my beloved ex 💕</h1>
+                <p>Klik untuk membuka surat</p>
+            </div>
+        </div>
+        
+        <div class="paper-container">
+            <div class="paper" tabindex="0">
+                <h2>Untuk Kamu</h2>
+                <p>Haiiiiii<br>I'm so prouuuuddddd of youuuuu!!<br>You've done your best.</p>
+                <div class="heart-icon">❤️</div>
+            </div>
+
+            <div class="paper" tabindex="0">
+                <h2>My Beloved Ex</h2>
+                <p>I'm always cheering for you,<br>believing in you.<br>Keep up the good work!</p>
+                <div class="heart-icon">💕</div>
+            </div>
+
+            <div class="paper" tabindex="0">
+                <h2>With Love</h2>
+                <p>You're capable of<br>amazing things, darling.<br>I love you. 💖</p>
+                <div class="heart-icon">💖</div>
+            </div>
+
+            <div class="paper" tabindex="0">
+                <h2>Buat kakak</h2>
+                <img src="ainil.jpeg" alt="Kakak cantikku" style="width: 80%; border-radius: 10px; margin-top: 15px;">
+                <p>You make every day<br>a little brighter</p>
+                <div class="heart-icon">💖</div>
+            </div>
+
+            <div class="paper" tabindex="0">
+                <h2>ilopyu</h2>
+                <img src="kak.jpeg" alt="Kakakku sayang" style="width: 80%; border-radius: 10px; margin-top: 15px;">
+                <p>kamu jangan marah ya<br>kalo aku panggil sayang</p>
+                <div class="heart-icon">💖</div>
+            </div>
+        </div>
+
+        <!-- Continue Button for Section 3 -->
+        <button class="section3-continue-btn" onclick="goToSection(4)">
+            Read My Message 💌
+        </button>
+    </div>
+
+    <!-- SECTION 4: SEMPRO MESSAGE -->
+    <div class="section" id="section4">
+        <div class="floating-hearts" id="hearts4"></div>
+        <div class="sempro-container" id="semproContent">
+            <h2>Hai kakak cantik 💕</h2>
+            <p style="margin-bottom: 25px;">
+                Jujur ya, awal aku ngechat kamu itu cuma modus.
+                Tapi bukan berarti aku nggak peduli sama topik yang waktu itu kita bahas.
+                Itu cuma jadi alasan karena aku nggak kepikiran cara lain buat mulai ngobrol sama kamu.
+            </p>
+            <p style="margin-bottom: 25px;">
+                Selama kita chatting, aku manggil kamu sayang, manggil kamu cantik,
+                ngasih kabar ke kamu, sampai akhirnya beraniin diri ngepap.
+                Padahal sebelumnya aku susah banget buat ngelakuin hal-hal kayak gitu.
+            </p>
+            <p style="margin-bottom: 25px;">
+                Semua itu aku lakuin bukan tanpa alasan.
+            </p>
+            <button class="continue-btn" onclick="showSecondMessage()">Lanjut...</button>
+        </div>
+    </div>
+
+    <!-- Music Toggle -->
+    <button class="music-toggle" id="musicToggle" title="Toggle Music">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Instructions -->
+    <div class="instructions" id="instructions">
+        <h3>💌 Controls</h3>
+        <ul>
+            <li>Drag the letters around</li>
+            <li>Right-click - Rotate paper</li>
+            <li>Space - Toggle music</li>
+        </ul>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="Dandelions.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let currentSection = 1;
+        let isPlaying = false;
+        let messageStep = 1;
+        let isDarkTheme = false;
+        const musicToggle = document.getElementById('musicToggle');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const instructions = document.getElementById('instructions');
+        const resetButton = document.getElementById('resetButton');
+        const themeToggle = document.getElementById('themeToggle');
+        const overlay = document.getElementById('transitionOverlay');
+
+        backgroundMusic.volume = 0.6;
+
+        // Theme Toggle Function
+        themeToggle.addEventListener('click', () => {
+            isDarkTheme = !isDarkTheme;
+            document.body.classList.toggle('dark-theme');
+            
+            // Update icon with smooth transition
+            const icon = themeToggle.querySelector('i');
+            icon.style.transform = 'scale(0)';
+            setTimeout(() => {
+                icon.className = isDarkTheme ? 'fas fa-sun' : 'fas fa-moon';
+                icon.style.transform = 'scale(1)';
+            }, 150);
+        });
+
+        // Progress dots
+        function updateProgress() {
+            document.querySelectorAll('.progress-dot').forEach((dot, index) => {
+                if (index + 1 === currentSection) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            // Show reset button after section 1
+            if (currentSection > 1) {
+                resetButton.classList.add('show');
+            }
+        }
+
+        // Jump to section
+        function jumpToSection(num) {
+            if (num <= currentSection || currentSection === 1) {
+                goToSection(num);
+            }
+        }
+
+        // Floating hearts
+        function createFloatingHearts(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 8 + 's';
+                heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Initialize floating hearts for all sections
+        createFloatingHearts('hearts1');
+        createFloatingHearts('hearts3');
+        createFloatingHearts('hearts4');
+
+        function handleAnswer(response) {
+            if (response === 'no') {
+                const container = document.querySelector('.question-container');
+                container.style.animation = 'fadeInScale 0.5s ease';
+                container.innerHTML = `
+                    <img src="Sad Cat GIF by Mochimons.gif" alt="Sad Cat" class="gif-image" style="margin-bottom: 20px;">
+                    <h1 id="questionTitle">Oh c'mon...</h1>
+                    <p class="question-text" id="questionText">I prepared this special website just for you!</p>
+                    <div id="questionButtons">
+                        <button class="yes" onclick="handleAnswer('yes')">Okay, I'll see it! 💝</button>
+                    </div>
+                `;
+            } else {
+                startMusic();
+                setTimeout(() => {
+                    goToSection(2);
+                }, 500);
+            }
+        }
+
+        function goToSection(num) {
+            // Step 1: Fade to black
+            overlay.classList.add('active');
+            
+            setTimeout(() => {
+                // Step 2: Change section while screen is black
+                document.getElementById('section' + currentSection).classList.remove('active');
+                document.getElementById('section' + num).classList.add('active');
+                
+                currentSection = num;
+                updateProgress();
+
+                // Step 3: Fade from black
+                setTimeout(() => {
+                    overlay.classList.remove('active');
+                }, 150);
+
+                // Show instructions only on section 3 (draggable letters)
+                if (num === 3) {
+                    // Show start overlay for section 3
+                    const overlay3 = document.getElementById('startOverlay3');
+                    if (overlay3 && overlay3.style.display !== 'none') {
+                        setTimeout(() => {
+                            overlay3.style.display = 'flex';
+                            overlay3.addEventListener('click', function handler() {
+                                overlay3.style.animation = 'fadeIn 0.5s ease reverse';
+                                setTimeout(() => {
+                                    overlay3.style.display = 'none';
+                                }, 500);
+                                overlay3.removeEventListener('click', handler);
+                            });
+                        }, 200);
+                    }
+                    
+                    setTimeout(() => {
+                        instructions.classList.add('show');
+                    }, 1200);
+                } else {
+                    instructions.classList.remove('show');
+                }
+            }, 600); // Wait for black fade in to complete
+        }
+
+        function showSecondMessage() {
+            const content = document.getElementById('semproContent');
+            content.style.animation = 'fadeInScale 0.8s ease';
+            
+            if (messageStep === 1) {
+                content.innerHTML = `
+                    <h2>💕</h2>
+                    <p style="margin-bottom: 25px;">
+                        Sebenarnya aku pengen nunggu kamu wisuda dulu baru buatin website ini.
+                        Tapi aku ngerasa komunikasi kita mungkin nggak bakal sampai sejauh itu.
+                        Kita nggak pernah tahu apa yang bakal terjadi.
+                        Jadi aku mutusin buat bikin ini sekarang dan beraniin diri ngasih ke kamu.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        Intinya, aku pengen ngajak kamu balikan.
+                        Kalau kamu nggak mau, itu nggak apa-apa.
+                        Aku nggak maksa kamu harus gimana.
+                        Aku cuma pengen jujur soal apa yang ngganjel di pikiran aku akhir-akhir ini.
+                    </p>
+                    <button class="continue-btn" onclick="showSecondMessage()">Lanjut...</button>
+                `;
+                messageStep = 2;
+            } else {
+                content.innerHTML = `
+                    <h2>💕</h2>
+                    <p style="margin-bottom: 25px;">
+                        Aku sering nanya kamu punya pacar atau nggak,
+                        itu cuma buat mastiin supaya aku nggak salah langkah.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        Kalau kamu mau aku ceritain semuanya langsung,
+                        bilang aja ya.
+                        Jangan gengsi.
+                        Jujur, aku nahan malu nulis ini.
+                    </p>
+                    <p style="margin-top: 30px; margin-bottom: 20px;"><strong>I love you, cantik.</strong></p>
+                    <button class="thankyou-btn" onclick="goToSection(1)">
+                        Thank You 💖
+                    </button>
+                `;
+            }
+        }
+
+        function resetWebsite() {
+            // Step 1: Fade to black
+            overlay.classList.add('active');
+            
+            setTimeout(() => {
+                // Reset to section 1
+                messageStep = 1;
+                
+                // Reset all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                document.getElementById('section1').classList.add('active');
+                currentSection = 1;
+                updateProgress();
+                
+                // Reset question
+                const container = document.querySelector('.question-container');
+                container.innerHTML = `
+                    <div class="emoji">💝</div>
+                    <h1 id="questionTitle">Hey baby 💕</h1>
+                    <p class="question-text" id="questionText">Would you like to see this special website I made for you?</p>
+                    <div id="questionButtons">
+                        <button class="yes" onclick="handleAnswer('yes')">Yes! 💖</button>
+                        <button class="no" onclick="handleAnswer('no')">No</button>
+                    </div>
+                `;
+                
+                // Reset sempro content
+                document.getElementById('semproContent').innerHTML = `
+                    <h2>Hai kakak cantik 💕</h2>
+                    <p style="margin-bottom: 25px;">
+                        Jujur ya, awal aku ngechat kamu itu cuma modus.
+                        Tapi bukan berarti aku nggak peduli sama topik yang waktu itu kita bahas.
+                        Itu cuma jadi alasan karena aku nggak kepikiran cara lain buat mulai ngobrol sama kamu.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        Selama kita chatting, aku manggil kamu sayang, manggil kamu cantik,
+                        ngasih kabar ke kamu, sampai akhirnya beraniin diri ngepap.
+                        Padahal sebelumnya aku susah banget buat ngelakuin hal-hal kayak gitu.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        Semua itu aku lakuin bukan tanpa alasan.
+                    </p>
+                    <button class="continue-btn" onclick="showSecondMessage()">Lanjut...</button>
+                `;
+                
+                // Hide reset button and instructions
+                resetButton.classList.remove('show');
+                instructions.classList.remove('show');
+                
+                // Step 3: Fade from black
+                setTimeout(() => {
+                    overlay.classList.remove('active');
+                }, 150);
+                
+            }, 600); // Wait for black fade in to complete
+        }
+
+        function startMusic() {
+            backgroundMusic.play().then(() => {
+                isPlaying = true;
+                musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+            }).catch(e => {
+                console.log('Click music button to start');
+            });
+        }
+
+        musicToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+                isPlaying = false;
+            } else {
+                startMusic();
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === ' ') {
+                e.preventDefault();
+                musicToggle.click();
+            }
+            if (e.key === 'r' || e.key === 'R') {
+                resetWebsite();
+            }
+            if (e.key === 't' || e.key === 'T') {
+                themeToggle.click();
+            }
+        });
+
+        // Draggable Paper Logic
+        let highestZ = 10;
+
+        class Paper {
+            holdingPaper = false;
+            currentPaperX = 0;
+            currentPaperY = 0;
+            mouseTouchX = 0;
+            mouseTouchY = 0;
+            mouseX = 0;
+            mouseY = 0;
+            prevMouseX = 0;
+            prevMouseY = 0;
+            velX = 0;
+            velY = 0;
+            rotation = 0;
+            rotating = false;
+
+            init(paper) {
+                const computedStyle = window.getComputedStyle(paper);
+                const matrix = computedStyle.transform;
+                if (matrix !== 'none') {
+                    const values = matrix.split('(')[1].split(')')[0].split(',');
+                    const a = values[0];
+                    const b = values[1];
+                    this.rotation = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+                }
+
+                document.addEventListener('mousemove', (e) => {
+                    if (this.holdingPaper) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+
+                    if (!this.rotating) {
+                        this.mouseX = e.clientX;
+                        this.mouseY = e.clientY;
+                        this.velX = (this.mouseX - this.prevMouseX) * 0.8;
+                        this.velY = (this.mouseY - this.prevMouseY) * 0.8;
+                    }
+
+                    const dirX = e.clientX - this.mouseTouchX;
+                    const dirY = e.clientY - this.mouseTouchY;
+                    const dirLength = Math.sqrt(dirX * dirX + dirY * dirY);
+                    const dirNormalizedX = dirX / dirLength;
+                    const dirNormalizedY = dirY / dirLength;
+
+                    const angle = Math.atan2(dirNormalizedY, dirNormalizedX);
+                    let degrees = 180 * angle / Math.PI;
+                    degrees = (360 + Math.round(degrees)) % 360;
+                    if (this.rotating) {
+                        this.rotation = degrees;
+                    }
+
+                    if (this.holdingPaper) {
+                        if (!this.rotating) {
+                            this.currentPaperX += this.velX;
+                            this.currentPaperY += this.velY;
+                            const moveRotation = this.velX * 0.05;
+                            const finalRotation = this.rotation + moveRotation;
+
+                            requestAnimationFrame(() => {
+                                paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px) rotateZ(${finalRotation}deg) scale(1.05)`;
+                            });
+                        }
+
+                        this.prevMouseX = this.mouseX;
+                        this.prevMouseY = this.mouseY;
+                    }
+                });
+
+                paper.addEventListener('mousedown', (e) => {
+                    if (this.holdingPaper) return;
+                    this.holdingPaper = true;
+                    paper.classList.add('dragging');
+                    document.body.classList.add('dragging');
+                    paper.style.zIndex = highestZ;
+                    highestZ += 1;
+                    
+                    if (e.button === 0) {
+                        this.mouseTouchX = e.clientX;
+                        this.mouseTouchY = e.clientY;
+                        this.prevMouseX = e.clientX;
+                        this.prevMouseY = e.clientY;
+                        this.mouseX = e.clientX;
+                        this.mouseY = e.clientY;
+                    }
+                    if (e.button === 2) {
+                        this.rotating = true;
+                    }
+                });
+
+                window.addEventListener('mouseup', () => {
+                    if (this.holdingPaper) {
+                        paper.classList.remove('dragging');
+                        document.body.classList.remove('dragging');
+                        paper.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px) rotateZ(${this.rotation}deg) scale(1)`;
+                        setTimeout(() => {
+                            paper.style.transition = '';
+                        }, 300);
+                    }
+                    this.holdingPaper = false;
+                    this.rotating = false;
+                });
+
+                // Touch support
+                paper.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    if (this.holdingPaper) return;
+                    this.holdingPaper = true;
+                    paper.classList.add('dragging');
+                    document.body.classList.add('dragging');
+                    paper.style.zIndex = highestZ;
+                    highestZ += 1;
+                    const touch = e.touches[0];
+                    this.mouseTouchX = touch.clientX;
+                    this.mouseTouchY = touch.clientY;
+                    this.prevMouseX = touch.clientX;
+                    this.prevMouseY = touch.clientY;
+                    this.mouseX = touch.clientX;
+                    this.mouseY = touch.clientY;
+                }, { passive: false });
+
+                document.addEventListener('touchmove', (e) => {
+                    if (!this.holdingPaper) return;
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    this.mouseX = touch.clientX;
+                    this.mouseY = touch.clientY;
+                    this.velX = (this.mouseX - this.prevMouseX) * 0.8;
+                    this.velY = (this.mouseY - this.prevMouseY) * 0.8;
+                    this.currentPaperX += this.velX;
+                    this.currentPaperY += this.velY;
+                    this.prevMouseX = this.mouseX;
+                    this.prevMouseY = this.mouseY;
+
+                    const moveRotation = this.velX * 0.05;
+                    const finalRotation = this.rotation + moveRotation;
+
+                    requestAnimationFrame(() => {
+                        paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px) rotateZ(${finalRotation}deg) scale(1.05)`;
+                    });
+                }, { passive: false });
+
+                document.addEventListener('touchend', () => {
+                    if (this.holdingPaper) {
+                        paper.classList.remove('dragging');
+                        document.body.classList.remove('dragging');
+                        paper.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px) rotateZ(${this.rotation}deg) scale(1)`;
+                        setTimeout(() => {
+                            paper.style.transition = '';
+                        }, 300);
+                    }
+                    this.holdingPaper = false;
+                    this.rotating = false;
+                });
+
+                paper.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                });
+            }
+        }
+
+        const papers = Array.from(document.querySelectorAll('.paper'));
+        papers.forEach(paper => {
+            const p = new Paper();
+            p.init(paper);
+        });
+
+        // Sparkle effect on hover
+        function createSparkle(element) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.style.position = 'absolute';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.fontSize = '20px';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animation = 'sparkleEffect 1s ease-out forwards';
+
+            element.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        papers.forEach(paper => {
+            paper.addEventListener('mouseenter', () => {
+                createSparkle(paper);
+            });
+        });
+
+        // Global text selection prevention
+        document.addEventListener('selectstart', (e) => {
+            if (document.body.classList.contains('dragging')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        document.addEventListener('dragstart', (e) => {
+            if (document.body.classList.contains('dragging')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        document.onselectstart = function() {
+            if (document.body.classList.contains('dragging')) {
+                return false;
+            }
+        };
+
+        console.log('💕 Complete Love Website Ready! 💕');
+        console.log('Press R to reset | Press T to toggle theme | Space to toggle music');
+    </script>
+</body>
+</html>
