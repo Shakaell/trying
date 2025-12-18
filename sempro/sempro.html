@@ -2,7 +2,10 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>For My Beloved 💕</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -998,6 +1001,446 @@
         .reset-button i {
             margin-right: 5px;
         }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        
+        /* Mobile Phones - Portrait */
+        @media screen and (max-width: 768px) {
+            /* Scale down everything for mobile */
+            .question-container {
+                padding: 30px 25px;
+                max-width: 90%;
+                margin: 0 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            .question-text {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 16px;
+                margin: 8px;
+            }
+
+            .emoji {
+                font-size: 60px;
+                margin: 15px 0;
+            }
+
+            .gif-image {
+                max-width: 200px;
+            }
+
+            /* Message Overlay */
+            .message-overlay {
+                padding: 25px 30px;
+                max-width: 85%;
+                margin: 0 20px;
+            }
+
+            .message-overlay h2 {
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+
+            .message-overlay p {
+                font-size: 16px;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            .message-overlay .gif-image {
+                width: 150px;
+                margin-bottom: 15px;
+            }
+
+            /* Paper Container - Stack vertically on mobile */
+            .paper-container {
+                padding: 20px;
+                overflow-y: auto;
+                align-items: flex-start;
+                padding-top: 100px;
+            }
+
+            .paper {
+                position: relative !important;
+                width: 90%;
+                max-width: 350px;
+                height: auto;
+                min-height: 350px;
+                margin: 15px auto !important;
+                top: 0 !important;
+                left: 0 !important;
+                transform: none !important;
+                display: flex;
+            }
+
+            /* Reset all paper positions for mobile - stack vertically */
+            .paper:nth-child(1),
+            .paper:nth-child(2),
+            .paper:nth-child(3),
+            .paper:nth-child(4),
+            .paper:nth-child(5) {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                transform: rotate(0deg) !important;
+                z-index: auto !important;
+            }
+
+            .paper h2 {
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+
+            .paper p {
+                font-size: 16px;
+            }
+
+            .paper .heart-icon {
+                font-size: 35px;
+                margin-top: 15px;
+            }
+
+            .paper img {
+                max-width: 90%;
+            }
+
+            /* Sempro Container */
+            .sempro-container {
+                max-width: 90%;
+                padding: 30px 25px;
+                margin: 0 20px;
+            }
+
+            .sempro-container h2 {
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+
+            .sempro-container p {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            /* Buttons */
+            .link-button,
+            .continue-btn,
+            .thankyou-btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+
+            .section3-continue-btn {
+                bottom: 20px;
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+
+            .thankyou-btn {
+                padding: 14px 30px;
+                font-size: 18px;
+            }
+
+            /* Controls */
+            .theme-toggle,
+            .reset-button {
+                padding: 8px 12px;
+                font-size: 16px;
+                top: 15px;
+            }
+
+            .theme-toggle {
+                left: 15px;
+            }
+
+            .reset-button {
+                right: 15px;
+                font-size: 12px;
+                padding: 8px 15px;
+            }
+
+            .reset-button i {
+                margin-right: 3px;
+            }
+
+            .music-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .progress-indicator {
+                top: 70px;
+                gap: 10px;
+            }
+
+            .progress-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            /* Instructions - smaller on mobile */
+            .instructions {
+                bottom: 90px;
+                left: 15px;
+                padding: 10px 12px;
+                max-width: 180px;
+                font-size: 11px;
+            }
+
+            .instructions h3 {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+
+            .instructions li {
+                padding: 2px 0;
+            }
+
+            .instructions li::before {
+                font-size: 9px;
+                margin-right: 4px;
+            }
+
+            /* Start Button Overlay */
+            .start-button {
+                padding: 30px 40px;
+            }
+
+            .start-button i {
+                font-size: 50px;
+                margin-bottom: 20px;
+            }
+
+            .start-button h1 {
+                font-size: 26px;
+                margin-bottom: 10px;
+            }
+
+            .start-button p {
+                font-size: 16px;
+            }
+
+            /* Floating hearts - less on mobile */
+            .heart {
+                font-size: 16px;
+            }
+
+            /* Flowers - scale down */
+            .flowers {
+                transform: scale(0.6);
+            }
+        }
+
+        /* Tablets - Portrait */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .question-container {
+                padding: 40px 50px;
+                max-width: 600px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .question-text {
+                font-size: 18px;
+            }
+
+            .message-overlay {
+                padding: 35px 45px;
+                max-width: 650px;
+            }
+
+            /* Paper - adjust spacing for tablets */
+            .paper {
+                width: 280px;
+                height: 380px;
+                padding: 25px;
+            }
+
+            .paper:nth-child(2) {
+                left: -300px;
+            }
+
+            .paper:nth-child(3) {
+                left: -180px;
+            }
+
+            .paper:nth-child(4) {
+                left: -40px;
+            }
+
+            .paper:nth-child(5) {
+                left: 80px;
+            }
+
+            .sempro-container {
+                max-width: 600px;
+                padding: 45px;
+            }
+
+            .flowers {
+                transform: scale(0.8);
+            }
+        }
+
+        /* Large Desktop */
+        @media screen and (min-width: 1920px) {
+            .question-container {
+                padding: 60px 70px;
+                max-width: 700px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .question-text {
+                font-size: 22px;
+            }
+
+            .message-overlay {
+                padding: 50px 60px;
+                max-width: 750px;
+            }
+
+            .message-overlay h2 {
+                font-size: 42px;
+            }
+
+            .message-overlay p {
+                font-size: 22px;
+            }
+
+            .paper {
+                width: 350px;
+                height: 450px;
+                padding: 35px;
+            }
+
+            .paper h2 {
+                font-size: 36px;
+            }
+
+            .paper p {
+                font-size: 20px;
+            }
+
+            .sempro-container {
+                max-width: 650px;
+                padding: 60px;
+            }
+
+            .sempro-container h2 {
+                font-size: 38px;
+            }
+
+            .sempro-container p {
+                font-size: 20px;
+            }
+
+            .flowers {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Landscape mode - Mobile */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            .question-container {
+                padding: 20px 30px;
+                max-width: 500px;
+            }
+
+            h1 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .question-text {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+                margin: 5px;
+            }
+
+            .emoji {
+                font-size: 40px;
+                margin: 10px 0;
+            }
+
+            .message-overlay {
+                padding: 20px 30px;
+            }
+
+            .message-overlay h2 {
+                font-size: 22px;
+            }
+
+            .message-overlay p {
+                font-size: 14px;
+            }
+
+            .paper-container {
+                padding-top: 80px;
+            }
+
+            .paper {
+                min-height: 300px;
+            }
+
+            .sempro-container {
+                padding: 25px 30px;
+            }
+
+            .progress-indicator {
+                top: 15px;
+                gap: 8px;
+            }
+
+            .progress-dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        /* Touch devices - enhance touch targets */
+        @media (hover: none) and (pointer: coarse) {
+            button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            .progress-dot {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .music-toggle {
+                min-width: 56px;
+                min-height: 56px;
+            }
+
+            .theme-toggle,
+            .reset-button {
+                min-height: 40px;
+                min-width: 40px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1027,7 +1470,7 @@
         <div class="floating-hearts" id="hearts1"></div>
         <div class="question-container">
             <div class="emoji">💝</div>
-            <h1 id="questionTitle">Haii Kakak 💕</h1>
+            <h1 id="questionTitle">Haii cantikk</h1>
             <p class="question-text" id="questionText">Would you like to see this special website I made for you?</p>
             <div id="questionButtons">
                 <button class="yes" onclick="handleAnswer('yes')">Yes! 💖</button>
@@ -1045,11 +1488,11 @@
 
         <div class="message-overlay">
             <img src="Cinema Cat Reaction GIF.gif" alt="Cinema" class="gif-image" style="width: 200px; margin-bottom: 20px;">
-            <h2>For You 🌼</h2>
+            <h2>Anjayyy</h2>
             <p>
                 Congratulations on the success of your proposal seminar!<br>
                 I know how hard you worked to reach this moment.<br>
-                I'm so proud of you, darling. 💛
+                I'm so proud of you, darling. 
             </p>
             <button class="link-button" onclick="goToSection(3)">Continue 💌</button>
         </div>
@@ -1349,7 +1792,7 @@
                 const container = document.querySelector('.question-container');
                 container.innerHTML = `
                     <div class="emoji">💝</div>
-                    <h1 id="questionTitle">Hey baby 💕</h1>
+                    <h1 id="questionTitle">Haiii Kakak Cantik 💕</h1>
                     <p class="question-text" id="questionText">Would you like to see this special website I made for you?</p>
                     <div id="questionButtons">
                         <button class="yes" onclick="handleAnswer('yes')">Yes! 💖</button>
@@ -1423,6 +1866,7 @@
 
         // Draggable Paper Logic
         let highestZ = 10;
+        const isMobile = window.innerWidth <= 768;
 
         class Paper {
             holdingPaper = false;
@@ -1440,6 +1884,11 @@
             rotating = false;
 
             init(paper) {
+                // Skip dragging on mobile - papers are stacked vertically
+                if (isMobile) {
+                    return;
+                }
+
                 const computedStyle = window.getComputedStyle(paper);
                 const matrix = computedStyle.transform;
                 if (matrix !== 'none') {
@@ -1514,59 +1963,6 @@
                 });
 
                 window.addEventListener('mouseup', () => {
-                    if (this.holdingPaper) {
-                        paper.classList.remove('dragging');
-                        document.body.classList.remove('dragging');
-                        paper.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                        paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px) rotateZ(${this.rotation}deg) scale(1)`;
-                        setTimeout(() => {
-                            paper.style.transition = '';
-                        }, 300);
-                    }
-                    this.holdingPaper = false;
-                    this.rotating = false;
-                });
-
-                // Touch support
-                paper.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    if (this.holdingPaper) return;
-                    this.holdingPaper = true;
-                    paper.classList.add('dragging');
-                    document.body.classList.add('dragging');
-                    paper.style.zIndex = highestZ;
-                    highestZ += 1;
-                    const touch = e.touches[0];
-                    this.mouseTouchX = touch.clientX;
-                    this.mouseTouchY = touch.clientY;
-                    this.prevMouseX = touch.clientX;
-                    this.prevMouseY = touch.clientY;
-                    this.mouseX = touch.clientX;
-                    this.mouseY = touch.clientY;
-                }, { passive: false });
-
-                document.addEventListener('touchmove', (e) => {
-                    if (!this.holdingPaper) return;
-                    e.preventDefault();
-                    const touch = e.touches[0];
-                    this.mouseX = touch.clientX;
-                    this.mouseY = touch.clientY;
-                    this.velX = (this.mouseX - this.prevMouseX) * 0.8;
-                    this.velY = (this.mouseY - this.prevMouseY) * 0.8;
-                    this.currentPaperX += this.velX;
-                    this.currentPaperY += this.velY;
-                    this.prevMouseX = this.mouseX;
-                    this.prevMouseY = this.mouseY;
-
-                    const moveRotation = this.velX * 0.05;
-                    const finalRotation = this.rotation + moveRotation;
-
-                    requestAnimationFrame(() => {
-                        paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px) rotateZ(${finalRotation}deg) scale(1.05)`;
-                    });
-                }, { passive: false });
-
-                document.addEventListener('touchend', () => {
                     if (this.holdingPaper) {
                         paper.classList.remove('dragging');
                         document.body.classList.remove('dragging');
